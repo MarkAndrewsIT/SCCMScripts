@@ -30,7 +30,7 @@ if ($IPList.Count -ne $null)
 		}
 		 if (($IPList[$i].DNSServerSearchOrder[0] -ne $null) -AND ($IPList[$i].DNSServerSearchOrder[1] -ne $null))
 		{
-			if (($IPList[$i].DNSServerSearchOrder[0] -eq $server1) -AND ($IPList[$i].DNSServerSearchOrder[1] -eq $server2) -AND ($IPList.DNSServerSearchOrder[2] -eq $server3) -AND ($IPList.DNSServerSearchOrder[3] -eq $server4))
+			if (($IPList[$i].DNSServerSearchOrder[0] -eq $server0) -AND ($IPList[$i].DNSServerSearchOrder[1] -eq $server1) -AND ($IPList.DNSServerSearchOrder[2] -eq $server2) -AND ($IPList.DNSServerSearchOrder[3] -eq $server3))
 			{
 				$conformity = "Compliant"
 			}
@@ -64,7 +64,7 @@ else
 
 			if (($IPList.DNSServerSearchOrder[0] -ne $null) -AND ($IPList.DNSServerSearchOrder[1] -ne $null))
 				{
-					if (($IPList.DNSServerSearchOrder[0] -eq $server1) -AND ($IPList.DNSServerSearchOrder[1] -eq $server2) -AND ($IPList.DNSServerSearchOrder[2] -eq $server3) -AND ($IPList.DNSServerSearchOrder[3] -eq $server4))
+					if (($IPList.DNSServerSearchOrder[0] -eq $server0) -AND ($IPList.DNSServerSearchOrder[1] -eq $server1) -AND ($IPList.DNSServerSearchOrder[2] -eq $server2) -AND ($IPList.DNSServerSearchOrder[3] -eq $server3))
 						{
 							$conformity = "Compliant"
 						}
