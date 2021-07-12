@@ -17,7 +17,7 @@ Invoke-Command -computername $SCOMServer -Credential $Credential -argumentlist $
 	Import-Module -Name OperationsManager
 	$Instance = Get-SCOMClassInstance -Name $myFQDN
 	$MMEntry = Get-SCOMMaintenanceMode -Instance $Instance
-	$NewEndTime = ((Get-Date).AddMinutes(1))
+	$NewEndTime = (Get-Date)
 	Set-SCOMMaintenanceMode -MaintenanceModeEntry $MMEntry -EndTime $NewEndTime -Comment "Finished Applying Software Update."
 	}
 		
