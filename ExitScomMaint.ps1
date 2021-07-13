@@ -15,9 +15,8 @@ $myFQDN=(Get-WmiObject win32_computersystem).DNSHostName+"."+(Get-WmiObject win3
 Invoke-Command -computername $SCOMServer -Credential $Credential -argumentlist $myFQDN -scriptblock {
 	param ($myFQDN)
 	Import-Module -Name OperationsManager
-	$Instance = Get-SCOMClassInstance -Name $myFQDN
-	$MMEntry = Get-SCOMMaintenanceMode -Instance $Instance
-	$NewEndTime = (Get-Date)
-	Set-SCOMMaintenanceMode -MaintenanceModeEntry $MMEntry -EndTime $NewEndTime -Comment "Finished Applying Software Update."
+	$CompClass = Get-SCOMClass -Name Microsoft.Windows.Computer
+	$WindowsComputer = Get-SCOMClassInstance -class $CompClass
+	($WindowsComputer | Where-Object {$_.displayname –match $myFQDN}).StopMaintenanceMode([DateTime]::Now.ToUniversalTime(),[Microsoft.EnterpriseManagement.Common.TraversalDepth]::Recursive);
 	}
 		
